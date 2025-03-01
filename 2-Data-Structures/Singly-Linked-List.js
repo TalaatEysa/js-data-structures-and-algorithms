@@ -40,10 +40,22 @@ class SinglyLinkedList {
         }
         return current;
     }
+    shift() {
+        if (!this.head) return undefined;
+        let oldHead = this.head;
+        this.head = oldHead.next;
+        this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return oldHead;
+    }
 }
-const ne = new SinglyLinkedList();
-console.log(ne.push('hi'));
-console.log(ne.push('hello'));
-console.log(ne.pop());
-console.log(ne.pop());
-console.log(ne)
+const list = new SinglyLinkedList();
+list.push('hi');
+list.push('hello');
+list.push('bye');
+list.pop();
+list.shift()
+console.log(list);
