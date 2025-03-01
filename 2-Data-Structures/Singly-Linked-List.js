@@ -23,7 +23,27 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+    pop() {
+        if (!this.head) return undefined;
+        let current = this.head;
+        let newTail = current;
+        while (current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
 }
 const ne = new SinglyLinkedList();
 console.log(ne.push('hi'));
 console.log(ne.push('hello'));
+console.log(ne.pop());
+console.log(ne.pop());
+console.log(ne)
