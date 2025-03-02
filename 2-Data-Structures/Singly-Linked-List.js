@@ -64,14 +64,27 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+
+    get(index) {
+        if (index < 0 || index > this.length) return null;
+        let counter = 0;
+        let current = this.head;
+        while (counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+
 }
 const list = new SinglyLinkedList();
 list.push('hi');
 list.push('hello');
 list.push('bye');
-list.pop();
-list.pop();
-list.shift();
-list.unshift('second');
-list.unshift('first');
+// list.pop();
+// list.pop();
+// list.shift();
+// list.unshift('second');
+// list.unshift('first');
+console.log(list.get(0));
 console.log(list);
