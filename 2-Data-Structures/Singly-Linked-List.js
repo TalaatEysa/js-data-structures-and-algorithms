@@ -76,6 +76,14 @@ class SinglyLinkedList {
         return current;
     }
 
+    set(index, val) {
+        let foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
 }
 const list = new SinglyLinkedList();
 list.push('hi');
@@ -87,4 +95,5 @@ list.push('bye');
 // list.unshift('second');
 // list.unshift('first');
 console.log(list.get(0));
+console.log(list.set(0,'hola'));
 console.log(list);
